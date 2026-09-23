@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090f">
+<title>Project Harshita.exe</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#09090f;color:#f7f7fb;font-family:Inter,system-ui,sans-serif}
+body{overflow:hidden}.page{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:22px;overflow:auto}.page.active{display:flex}
+.card{width:min(100%,560px);text-align:center}.tiny{font:700 11px "Space Mono",monospace;letter-spacing:1.8px;opacity:.65;text-transform:uppercase}
+h1{font-size:clamp(34px,11vw,66px);line-height:.98;margin:16px 0;font-weight:900;letter-spacing:-2px}h2{font-size:clamp(26px,8vw,44px);margin:12px 0;font-weight:900;letter-spacing:-1px}
+p{font-size:17px;line-height:1.55;opacity:.86}.muted{opacity:.55}
+button{border:0;border-radius:18px;padding:17px 22px;font:800 16px Inter;cursor:pointer;touch-action:manipulation;min-height:56px}
+.primary{background:#fff;color:#09090f;width:100%;box-shadow:0 10px 30px #0006}.ghost{background:#ffffff12;color:#fff;border:1px solid #ffffff1c}
+.stack{display:grid;gap:12px;margin-top:24px}.progress{height:10px;background:#ffffff12;border-radius:99px;overflow:hidden;margin:20px 0}.bar{height:100%;width:0;background:#fff;border-radius:99px;transition:width .4s}
+.terminal{font:13px/1.7 "Space Mono",monospace;text-align:left;background:#050507;border:1px solid #ffffff18;border-radius:20px;padding:18px;min-height:270px;box-shadow:0 20px 70px #0008;overflow:hidden}.green{color:#72ff9d}.pink{color:#ff79c6}.yellow{color:#ffe66d}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.pill{padding:8px 11px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff12;font-size:12px}
+.bigemoji{font-size:72px}.hidden{display:none!important}.shake{animation:shake .25s linear 2}.pop{animation:pop .45s ease}.glitch{animation:glitch .8s infinite}
+@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}@keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}@keyframes glitch{0%,100%{transform:none}20%{transform:skewX(3deg)}22%{transform:skewX(-3deg)}50%{transform:none}}
+#yes{background:#ff4f9a;color:#fff;box-shadow:0 12px 40px #ff4f9a44;transition:transform .35s,font-size .35s,padding .35s}
+#no{background:#ffffff10;color:#fff;border:1px solid #ffffff18;position:relative;transition:transform .25s ease}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;width:8px;height:14px;background:#fff;animation:fall 2.5s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}.note{font-size:12px;opacity:.5;margin-top:14px}.heart{font-size:46px}
+</style>
+</head>
+<body>
+<div id="soundToggle" style="position:fixed;right:14px;top:14px;z-index:20"><button class="ghost" style="min-height:40px;padding:9px 12px;font-size:12px" onclick="toggleSound()">🔊 Sound</button></div>
+
+<section class="page active" id="p0"><div class="card">
+<div class="bigemoji">🎂</div><div class="tiny">SPECIAL DATE DETECTED</div>
+<h1>Happy Birthday, Harshita! 🎉</h1>
+<p>Before the highly questionable experiment begins, the laboratory would like to wish you a ridiculously happy birthday.</p>
+<div class="stack"><button class="primary" onclick="go(1)">ENTER THE BIRTHDAY LAB 🧪</button></div>
+</div></section>
+
+<section class="page" id="p1"><div class="card">
+<div class="bigemoji">🧪</div><div class="tiny">TOP SECRET // PROJECT H-001</div>
+<h1>Welcome to the<br>Harshita Research Facility.</h1>
+<p>A completely legitimate scientific experiment with absolutely no unnecessary drama.</p>
+<div class="stack"><button class="primary" onclick="go(2)">ENTER THE LAB 🧑‍🔬</button></div>
+</div></section>
+
+<section class="page" id="p2"><div class="card">
+<div class="tiny">INITIAL CALIBRATION</div><h2>Running Extremely Important Tests</h2>
+<div class="terminal" id="term2"></div><div class="progress"><div class="bar" id="bar2"></div></div>
+<p class="muted">Please remain calm. The computer is not qualified.</p>
+</div></section>
+
+<section class="page" id="p3"><div class="card">
+<div class="tiny">MULTIVERSE ENGINE v7.3</div><h2>Calculating Stuff That Doesn't Need Calculating</h2>
+<div class="terminal" id="term3"></div>
+<button class="primary hidden" id="b3" onclick="go(4)">CONTINUE TO MORE NONSENSE →</button>
+</div></section>
+
+<section class="page" id="p4"><div class="card">
+<div class="tiny">QUANTUM CRUSH DETECTOR</div><h2>Scanning 8,421 Parallel Universes</h2>
+<div class="row"><span class="pill">Universe #1847</span><span class="pill">Universe #3912</span><span class="pill">Universe #∞</span></div>
+<div class="terminal" id="term4"></div>
+<button class="primary hidden" id="b4" onclick="go(5)">ASK THE AI WHAT IT FOUND 🤖</button>
+</div></section>
+
+<section class="page" id="p5"><div class="card">
+<div class="bigemoji">🤖</div><div class="tiny">AI INTERROGATION</div>
+<div class="terminal"><span class="green">AI:</span> I have analyzed 7.3 billion possible outcomes.<br><br>
+<span class="green">AI:</span> I have discovered one major problem.<br><br>
+<span class="yellow">AI:</span> You two are both suspicious.<br><br>
+<span class="green">AI:</span> My professional recommendation: proceed to the final question.<br><br>
+<span class="pink">AI:</span> Also, whoever made this website needs hobbies.</div>
+<div class="stack"><button class="primary" onclick="go(6)">ASK THE QUESTION 👀</button></div>
+</div></section>
+
+<section class="page" id="p6"><div class="card">
+<div class="tiny">FINAL EXPERIMENT</div><h1>Harshita...</h1><h2>Do you I am stupid? 👀</h2>
+<p class="muted">Choose carefully. The laws of physics are watching.</p>
+<div class="row" style="margin-top:28px;align-items:center">
+<button id="yes" onclick="yes()">YES ❤️</button><button id="no" onclick="nope()">NO 💀</button>
+</div><div class="note" id="noNote">The NO button is currently under investigation.</div>
+</div></section>
+
+<section class="page" id="p7"><div class="card">
+<div class="tiny">EMERGENCY SYSTEM</div><h1 class="glitch">WAIT.</h1><div class="terminal" id="hackterm"></div>
+</div></section>
+
+<section class="page" id="p8"><div class="card pop">
+<div class="bigemoji">🚨</div><div class="tiny">RESULT CONFIRMED</div><h1>SHE SAID YES?!</h1><p>The multiverse has been notified.</p>
+<div class="terminal"><span class="green">Universe #001:</span> YES<br><span class="green">Universe #002:</span> YES<br><span class="green">Universe #003:</span> YES<br><span class="green">Universe #∞:</span> YES<br><br><span class="pink">FINAL STATUS:</span> ROMANTIC CHAOS DETECTED.</div>
+<div class="stack"><button class="primary" onclick="go(9)">CLAIM YOUR REWARD 🎁</button></div>
+</div></section>
+
+<section class="page" id="p9"><div class="card">
+<div class="heart">❤️</div><div class="tiny">REWARD GENERATED</div><h1>Congratulations.</h1>
+<p>You have unlocked the extremely rare achievement:</p><h2>“SHE ACTUALLY SAID YES”</h2>
+<p class="muted">Reward: one very happy idiot somewhere behind this website.</p>
+<div class="stack"><button class="primary" onclick="finale()">ACCEPT THE CONSEQUENCES 😌</button></div>
+</div></section>
+
+<section class="page" id="p10"><div class="card">
+<div class="bigemoji">🥹</div><div class="tiny">SYSTEM MESSAGE</div><h1>Okay, jokes aside...</h1>
+<p>I am blessed to have you, Harshita. ❤️</p><p>Thanks for making it all the way through this ridiculously overengineered website.</p>
+<div class="pill">STATUS: VERY HAPPY</div>
+</div></section>
+
+<div class="confetti" id="confetti"></div>
+<script>
+let soundOn=true,audioCtx=null;
+function tone(freq=440,dur=.10,type='sine',vol=.025){
+ if(!soundOn)return;
+ audioCtx ||= new (window.AudioContext||window.webkitAudioContext)();
+ const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+ o.type=type;o.frequency.value=freq;g.gain.value=vol;o.connect(g);g.connect(audioCtx.destination);
+ o.start();g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+dur);o.stop(audioCtx.currentTime+dur);
+}
+function toggleSound(){soundOn=!soundOn;document.querySelector('#soundToggle button').textContent=soundOn?'🔊 Sound':'🔇 Sound';if(soundOn)tone(660,.12)}
+const pages=[...document.querySelectorAll('.page')];
+function go(n){tone(520,.08);pages.forEach(p=>p.classList.remove('active'));document.getElementById('p'+n).classList.add('active');if(n===2)cal2();if(n===3)cal3();if(n===4)cal4();}
+function typeLines(el,lines,delay=900){el.innerHTML='';lines.forEach((x,i)=>setTimeout(()=>{el.innerHTML+=x+'<br>';el.scrollTop=el.scrollHeight;tone(190+i*22,.055,'square',.014)},i*delay))}
+function cal2(){
+let b=0;let id=setInterval(()=>{b+=5;bar2.style.width=b+'%';if(b>=100)clearInterval(id)},260);
+typeLines(term2,['BOOTING PERSONALITY SCANNER...','Checking birthday mode... ✓','Checking cuteness... ✓','Checking chaos levels... ✓','Checking suspicious behavior... ✓','Checking why this website exists... ERROR','Result: unnecessarily complicated.'],800);
+setTimeout(()=>go(3),7000)}
+function cal3(){
+typeLines(term3,['CONNECTING TO MULTIVERSE...','Universe #001 ........ NORMAL','Universe #002 ........ CONFUSED','Universe #003 ........ SHE SAID YES','Universe #004 ........ STILL PROCESSING','CALCULATING VALUE OF INFINITY...','∞ = 8','ERROR: Infinity has left the server.','SOLVING 2 + 2...','Answer: probably 4','CALCULATING PROBABILITY OF NEXT CLICK... 69420%','RESULT: SCIENCE HAS GIVEN UP.'],950);
+setTimeout(()=>b3.classList.remove('hidden'),12000)}
+function cal4(){
+typeLines(term4,['QUANTUM CRUSH DETECTOR v9.7','Scanning universe 1847... suspicious','Scanning universe 3912... VERY suspicious','Scanning universe 9281... she knows something','Scanning universe 12004... bro just ask her already','Calculating romantic chaos...','████████████████ 100%','FINAL RESULT: ❤️ + ∞ = ???'],1000);
+setTimeout(()=>b4.classList.remove('hidden'),9500)}
+let yesScale=1,noClicks=0;
+function nope(){
+noClicks++;yesScale=Math.min(6.5,yesScale+.45);yes.style.transform=`scale(${yesScale})`;yes.style.fontSize=(16+noClicks*2)+'px';
+no.classList.add('shake');tone(180,.10,'square',.035);
+const msgs=['Nice try. The NO button has moved.','NO has entered witness protection.','That button is getting nervous.','Interesting choice. The physics engine disagrees.','NO has relocated for security reasons.','At this point YES is basically the whole website.'];
+noNote.textContent=msgs[Math.min(noClicks-1,msgs.length-1)];setTimeout(()=>no.classList.remove('shake'),400);
+no.style.transform=`translate(${Math.random()*180-90}px,${Math.random()*110-55}px)`;
+if(noClicks>=7)noNote.textContent='Okay Harshita, we know you are persistent 😭';
+}
+function yes(){pages.forEach(p=>p.classList.remove('active'));document.getElementById('p8').classList.add('active');confetti();history.pushState({x:1},'','')}
+window.addEventListener('popstate',()=>{pages.forEach(p=>p.classList.remove('active'));document.getElementById('p7').classList.add('active');fakeHack()});
+function fakeHack(){let el=hackterm;el.innerHTML='';let lines=['BACK BUTTON DETECTED.','SECURITY SYSTEM ACTIVATED.','Analyzing decision...','Analyzing hesitation...','Analyzing suspicious back-button activity...','ACCESSING TOTALLY-NOT-REAL-DATABASE...','Fetching Harshita.exe...','DATA FOUND: NAME = HARSHITA','STATUS: EXTREMELY SUSPECT','PUNISHMENT: You have to answer the question.','...just kidding 😭'];lines.forEach((x,i)=>setTimeout(()=>el.innerHTML+=x+'<br>',i*650));setTimeout(()=>go(6),7800)}
+function finale(){go(10);confetti()}
+function confetti(){tone(880,.12,'triangle',.04);setTimeout(()=>tone(1175,.15,'triangle',.04),140);setTimeout(()=>tone(1568,.18,'triangle',.04),280);for(let i=0;i<80;i++){let x=document.createElement('i');x.style.left=Math.random()*100+'%';x.style.top='-20px';x.style.animationDelay=Math.random()*.8+'s';x.style.transform=`rotate(${Math.random()*360}deg)`;document.getElementById('confetti').appendChild(x);setTimeout(()=>x.remove(),3500)}}
+history.replaceState({x:0},'','');
+</script>
+</body></html>
